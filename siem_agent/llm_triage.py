@@ -17,9 +17,10 @@ Backend is swappable. Built-in backends:
                      the deterministic rule-based verdict
 
 API key lookup order:
-  1. Environment variable  GROQ_API_KEY
-  2. Config file           ~/.siem_agent_config.json  → {"groq_api_key": "..."}
-  3. Config file           siem_agent/.config.json    → {"groq_api_key": "..."}
+  1. .env file             project root .env → GROQ_API_KEY=...
+  2. Environment variable  GROQ_API_KEY
+  3. Config file           ~/.siem_agent_config.json  → {"groq_api_key": "..."}
+  4. Config file           siem_agent/.config.json    → {"groq_api_key": "..."}
 
 If no key is found, automatically falls back to NoLLMBackend.
 """
@@ -29,6 +30,16 @@ import os
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Optional, Protocol
+
+# ── Load .env file if present ─────────────────────────────────────────────────
+# Looks for .env in project root (one level up from siem_agent/)
+_ENV_PATH = Path(__file__).parent.parent / ".env"
+if _ENV_PATH.exists():
+    for _line in _ENV_PATH.read_text().splitlines():
+        _line = _line.strip()
+        if _line and not _line.startswith("#") and "=" in _line:
+            _k, _, _v = _line.partition("=")
+            os.environ.setdefault(_k.strip(), _v.strip())
 
 from alert_layer      import SIEMAlert
 from correlator       import CorrelationResult
@@ -443,18 +454,3 @@ class LLMTriage:
             except json.JSONDecodeError:
                 return None
         return None
-
-
-# ── Helper: how to set up the Groq key ────────────────────────────────────────
-def print_setup_instructions():
-    """Print how to configure the Groq API key."""
-    print(
-        "\n  To enable LLM triage with Groq:\n"
-        "  1. Get a free API key at: https://console.groq.com/keys\n"
-        "  2. Set it via one of:\n"
-        f"     export GROQ_API_KEY='your-key-here'\n"
-        f"     OR create {CONFIG_PATHS[0]} with: "
-        "{\"groq_api_key\": \"your-key-here\"}\n"
-        "  3. Re-run the agent. It will auto-detect the key.\n"
-        "  Without a key, the agent falls back to the rule-based triage.\n"
-    )

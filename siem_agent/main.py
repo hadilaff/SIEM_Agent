@@ -179,8 +179,8 @@ def main():
         print("  Starting investigation agent...")
         agent = InvestigationAgent(verbose=False, use_llm=not args.no_llm)
         if agent.llm_triage and agent.llm_triage.backend.name == "none:rule-based":
-            from llm_triage import print_setup_instructions
-            print_setup_instructions()
+            print("  [LLMTriage] No API key found — using rule-based fallback.")
+            print("  Add GROQ_API_KEY to .env file to enable LLM triage.")
 
     # ── Stream CSV ────────────────────────────────────────────────────────────
     print(f"\n  Streaming {args.csv.name} ...\n")
