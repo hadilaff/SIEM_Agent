@@ -1,0 +1,46 @@
+# ── Large dataset files (NOT pushed — download separately) ───────────────────
+# CSE-CIC-IDS2018 CSV files (~100MB each)
+*TrafficForML_CICFlowMeter.csv
+
+# Host log archive (137MB — over GitHub limit)
+cse_logs_*.zip
+
+# Dataset catalog
+datasets.csv
+*.csv
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# ── Virtual environments ─────────────────────────────────────────────────────
+siem_env/
+venv/
+env/
+.venv/
+
+# ── Secrets / API keys ───────────────────────────────────────────────────────
+.config.json
+*.env
+.env
+secrets.json
+
+# ── Generated outputs ───────────────────────────────────────────────────────
+siem_agent/reports/
+siem_agent/logs/
+
+# ── IDE ──────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db

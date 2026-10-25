@@ -1,0 +1,24 @@
+# SIEM Alert Triage & Investigation Agent
+# Python 3.10.9
+
+# Core ML
+xgboost==3.2.0
+scikit-learn==1.2.1
+numpy==1.26.4
+pandas==1.5.3
+
+# Log parsing
+python-evtx==0.8.1
+lxml==4.9.1
+
+# Report generation
+Jinja2==3.1.2
+pydantic==2.9.2
+
+# CLI / display
+rich==13.7.1
+colorama==0.4.6
+tqdm==4.64.1
+
+# Utilities
+python-dateutil==2.8.2
