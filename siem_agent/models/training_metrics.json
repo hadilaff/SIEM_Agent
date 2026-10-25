@@ -1,0 +1,95 @@
+{
+  "accuracy": 0.8216555124127659,
+  "roc_auc_macro": 0.9931247331816005,
+  "n_test_samples": 768765,
+  "classes": [
+    "Benign",
+    "Bot",
+    "BruteForce-Web",
+    "BruteForce-XSS",
+    "DDoS-HOIC",
+    "DDoS-LOIC-UDP",
+    "DoS-Hulk",
+    "DoS-SlowHTTPTest",
+    "FTP-BruteForce",
+    "Infiltration",
+    "SQL-Injection",
+    "SSH-BruteForce"
+  ],
+  "elapsed_seconds": 932.15,
+  "iso_false_alarm_pct": 0.464,
+  "n_features": 15,
+  "Benign": {
+    "precision": 0.9957,
+    "recall": 0.6724,
+    "f1": 0.8027,
+    "support": 360000
+  },
+  "Bot": {
+    "precision": 0.9999,
+    "recall": 0.9999,
+    "f1": 0.9999,
+    "support": 57238
+  },
+  "BruteForce-Web": {
+    "precision": 0.6228,
+    "recall": 0.979,
+    "f1": 0.7613,
+    "support": 1000
+  },
+  "BruteForce-XSS": {
+    "precision": 0.9872,
+    "recall": 1.0,
+    "f1": 0.9935,
+    "support": 1000
+  },
+  "DDoS-HOIC": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 137203
+  },
+  "DDoS-LOIC-UDP": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 1000
+  },
+  "DoS-Hulk": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 92382
+  },
+  "DoS-SlowHTTPTest": {
+    "precision": 0.7608,
+    "recall": 0.5158,
+    "f1": 0.6148,
+    "support": 27978
+  },
+  "FTP-BruteForce": {
+    "precision": 0.7158,
+    "recall": 0.8827,
+    "f1": 0.7905,
+    "support": 38672
+  },
+  "Infiltration": {
+    "precision": 0.0979,
+    "recall": 0.9244,
+    "f1": 0.177,
+    "support": 13774
+  },
+  "SQL-Injection": {
+    "precision": 0.9728,
+    "recall": 1.0,
+    "f1": 0.9862,
+    "support": 1000
+  },
+  "SSH-BruteForce": {
+    "precision": 1.0,
+    "recall": 0.9998,
+    "f1": 0.9999,
+    "support": 37518
+  },
+  "best_iteration": 499
+}

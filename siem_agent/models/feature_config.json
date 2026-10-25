@@ -1,0 +1,20 @@
+{
+  "features": [
+    "Dst Port",
+    "Fwd Seg Size Min",
+    "Init Fwd Win Byts",
+    "Init Bwd Win Byts",
+    "Flow Pkts/s",
+    "Fwd Pkts/s",
+    "Bwd Pkts/s",
+    "Flow IAT Max",
+    "Flow IAT Min",
+    "Flow IAT Mean",
+    "Fwd Pkt Len Mean",
+    "Fwd Act Data Pkts",
+    "Fwd Header Len",
+    "PSH Flag Cnt",
+    "Subflow Bwd Pkts"
+  ],
+  "target": "Label"
+}
