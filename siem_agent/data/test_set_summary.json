@@ -1,0 +1,21 @@
+{
+  "seen": {
+    "FTP-BruteForce": 6,
+    "SSH-Bruteforce": 6,
+    "Bot": 6,
+    "DoS attacks-Hulk": 6,
+    "DoS attacks-SlowHTTPTest": 6,
+    "Brute Force -Web": 3,
+    "Brute Force -XSS": 3,
+    "SQL Injection": 3,
+    "DDOS attack-HOIC": 6,
+    "DDOS attack-LOIC-UDP": 3,
+    "Infilteration": 6
+  },
+  "unseen": {
+    "DoS attacks-GoldenEye": 5,
+    "DoS attacks-Slowloris": 5
+  },
+  "benign": 28,
+  "total": 92
+}

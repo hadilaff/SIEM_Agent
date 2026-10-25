@@ -1,0 +1,329 @@
+{
+  "evaluated_at": "2026-10-25T13:54:05.741781",
+  "test_set_size": 92,
+  "detection": {
+    "total_flows": 92,
+    "attack_flows": 64,
+    "benign_flows": 28,
+    "detection_rate": 0.9688,
+    "false_positive_rate": 0.3214,
+    "attacks_detected": 62,
+    "benign_alerted": 9,
+    "per_type": {
+      "Bot": {
+        "seen": true,
+        "total": 6,
+        "detected": 6,
+        "rate": 1.0,
+        "avg_conf": 1.0
+      },
+      "BruteForce-Web": {
+        "seen": true,
+        "total": 3,
+        "detected": 3,
+        "rate": 1.0,
+        "avg_conf": 0.999
+      },
+      "BruteForce-XSS": {
+        "seen": true,
+        "total": 3,
+        "detected": 3,
+        "rate": 1.0,
+        "avg_conf": 1.0
+      },
+      "DDoS-HOIC": {
+        "seen": true,
+        "total": 6,
+        "detected": 6,
+        "rate": 1.0,
+        "avg_conf": 1.0
+      },
+      "DDoS-LOIC-UDP": {
+        "seen": true,
+        "total": 3,
+        "detected": 3,
+        "rate": 1.0,
+        "avg_conf": 1.0
+      },
+      "DoS-GoldenEye": {
+        "seen": false,
+        "total": 5,
+        "detected": 5,
+        "rate": 1.0,
+        "avg_conf": 0.91
+      },
+      "DoS-Hulk": {
+        "seen": true,
+        "total": 6,
+        "detected": 6,
+        "rate": 1.0,
+        "avg_conf": 1.0
+      },
+      "DoS-SlowHTTPTest": {
+        "seen": true,
+        "total": 6,
+        "detected": 6,
+        "rate": 1.0,
+        "avg_conf": 0.802
+      },
+      "DoS-Slowloris": {
+        "seen": false,
+        "total": 5,
+        "detected": 3,
+        "rate": 0.6,
+        "avg_conf": 0.972
+      },
+      "FTP-BruteForce": {
+        "seen": true,
+        "total": 6,
+        "detected": 6,
+        "rate": 1.0,
+        "avg_conf": 0.761
+      },
+      "Infiltration": {
+        "seen": true,
+        "total": 6,
+        "detected": 6,
+        "rate": 1.0,
+        "avg_conf": 0.801
+      },
+      "SQL-Injection": {
+        "seen": true,
+        "total": 3,
+        "detected": 3,
+        "rate": 1.0,
+        "avg_conf": 1.0
+      },
+      "SSH-BruteForce": {
+        "seen": true,
+        "total": 6,
+        "detected": 6,
+        "rate": 1.0,
+        "avg_conf": 1.0
+      }
+    },
+    "misclassified": 11
+  },
+  "triage": {
+    "total_triaged": 14,
+    "attack_triage_acc": 1.0,
+    "verdict_dist": {
+      "true_positive": 12,
+      "N/A": 1,
+      "escalate": 1
+    },
+    "avg_invest_time": 6.9,
+    "per_row": [
+      {
+        "true_label": "Benign",
+        "seen_in_train": true,
+        "alert_fired": false,
+        "triage_verdict": "N/A",
+        "triage_conf": 0.0,
+        "triage_backend": "N/A",
+        "narrative": "",
+        "expected_verdict": "false_positive",
+        "correct": true,
+        "invest_time": 0.1,
+        "predicted_type": NaN,
+        "model_conf": NaN,
+        "triage_model": NaN
+      },
+      {
+        "true_label": "Bot",
+        "seen_in_train": true,
+        "alert_fired": true,
+        "triage_verdict": "true_positive",
+        "triage_conf": 0.92,
+        "triage_backend": "groq",
+        "narrative": "Despite the lack of host\u2011side logs, the detection model is fully confident (100\u202f%) that the traffic on port\u202f8080 represents a bot C2 channel. According to triage policy, a high\u2011confidence network\u2011only",
+        "expected_verdict": "true_positive",
+        "correct": true,
+        "invest_time": 1.6,
+        "predicted_type": "Bot",
+        "model_conf": 1.0,
+        "triage_model": "groq:openai/gpt-oss-120b"
+      },
+      {
+        "true_label": "BruteForce-Web",
+        "seen_in_train": true,
+        "alert_fired": true,
+        "triage_verdict": "true_positive",
+        "triage_conf": 0.92,
+        "triage_backend": "groq",
+        "narrative": "The detection of a brute\u2011force web login attempt with near\u2011certain model confidence, despite the lack of host log evidence, warrants treating this as a real attack. The activity likely targets a web a",
+        "expected_verdict": "true_positive",
+        "correct": true,
+        "invest_time": 1.3,
+        "predicted_type": "BruteForce-Web",
+        "model_conf": 0.9961,
+        "triage_model": "groq:openai/gpt-oss-120b"
+      },
+      {
+        "true_label": "BruteForce-XSS",
+        "seen_in_train": true,
+        "alert_fired": true,
+        "triage_verdict": "true_positive",
+        "triage_conf": 0.86,
+        "triage_backend": "groq",
+        "narrative": "The detection system flagged a high\u2011confidence BruteForce\u2011XSS attempt against the web service on port 80. Although no host logs were found, the model\u2019s certainty exceeds the threshold for a true posit",
+        "expected_verdict": "true_positive",
+        "correct": true,
+        "invest_time": 1.3,
+        "predicted_type": "BruteForce-XSS",
+        "model_conf": 0.9997,
+        "triage_model": "groq:openai/gpt-oss-120b"
+      },
+      {
+        "true_label": "DDoS-HOIC",
+        "seen_in_train": true,
+        "alert_fired": true,
+        "triage_verdict": "true_positive",
+        "triage_conf": 0.92,
+        "triage_backend": "groq",
+        "narrative": "The alert indicates a high\u2011confidence HOIC volumetric DDoS attempt against the web service. Although no host logs were captured, the detection confidence (100\u202f%) exceeds the 0.85 threshold for network",
+        "expected_verdict": "true_positive",
+        "correct": true,
+        "invest_time": 1.5,
+        "predicted_type": "DDoS-HOIC",
+        "model_conf": 1.0,
+        "triage_model": "groq:openai/gpt-oss-120b"
+      },
+      {
+        "true_label": "DDoS-LOIC-UDP",
+        "seen_in_train": true,
+        "alert_fired": true,
+        "triage_verdict": "true_positive",
+        "triage_conf": 0.92,
+        "triage_backend": "groq",
+        "narrative": "The detection of a LOIC UDP flood against port 80 is highly reliable (model confidence 100%). Absence of host logs does not diminish the finding because DDoS attacks are purely network\u2011layer events. T",
+        "expected_verdict": "true_positive",
+        "correct": true,
+        "invest_time": 1.4,
+        "predicted_type": "DDoS-LOIC-UDP",
+        "model_conf": 1.0,
+        "triage_model": "groq:openai/gpt-oss-120b"
+      },
+      {
+        "true_label": "DoS-GoldenEye",
+        "seen_in_train": false,
+        "alert_fired": true,
+        "triage_verdict": "escalate",
+        "triage_conf": 0.78,
+        "triage_backend": "groq",
+        "narrative": "The alert indicates a low\u2011confidence SQL\u2011Injection suspicion on port 80, but there is no host\u2011side evidence to confirm malicious activity. Because the model confidence does not meet the 0.85 threshold",
+        "expected_verdict": "true_positive",
+        "correct": true,
+        "invest_time": 1.7,
+        "predicted_type": "SQL-Injection",
+        "model_conf": 0.7329,
+        "triage_model": "groq:openai/gpt-oss-120b"
+      },
+      {
+        "true_label": "DoS-Hulk",
+        "seen_in_train": true,
+        "alert_fired": true,
+        "triage_verdict": "true_positive",
+        "triage_conf": 0.88,
+        "triage_backend": "groq",
+        "narrative": "The alert shows a massive HTTP GET flood (\u22483,904 packets in <2\u202fms) matching the signature of the HULK tool. Although no host logs were captured, the network evidence is unequivocal and the model confi",
+        "expected_verdict": "true_positive",
+        "correct": true,
+        "invest_time": 1.8,
+        "predicted_type": "DoS-Hulk",
+        "model_conf": 0.9999,
+        "triage_model": "groq:openai/gpt-oss-120b"
+      },
+      {
+        "true_label": "DoS-SlowHTTPTest",
+        "seen_in_train": true,
+        "alert_fired": true,
+        "triage_verdict": "true_positive",
+        "triage_conf": 0.86,
+        "triage_backend": "groq",
+        "narrative": "The detection shows a high\u2011confidence network\u2011only indication of a SlowHTTPTest denial\u2011of\u2011service attempt against the FTP service. Although no host logs were captured, the traffic characteristics are ",
+        "expected_verdict": "true_positive",
+        "correct": true,
+        "invest_time": 27.1,
+        "predicted_type": "DoS-SlowHTTPTest",
+        "model_conf": 0.8981,
+        "triage_model": "groq:openai/gpt-oss-120b"
+      },
+      {
+        "true_label": "DoS-Slowloris",
+        "seen_in_train": false,
+        "alert_fired": true,
+        "triage_verdict": "true_positive",
+        "triage_conf": 0.92,
+        "triage_backend": "groq",
+        "narrative": "The high\u2011confidence network detection of a DoS\u2011Hulk HTTP flood, despite the absence of host logs, meets the criteria for a true positive. The activity is consistent with the described technique (T1499",
+        "expected_verdict": "true_positive",
+        "correct": true,
+        "invest_time": 1.4,
+        "predicted_type": "DoS-Hulk",
+        "model_conf": 0.9898,
+        "triage_model": "groq:openai/gpt-oss-120b"
+      },
+      {
+        "true_label": "FTP-BruteForce",
+        "seen_in_train": true,
+        "alert_fired": true,
+        "triage_verdict": "true_positive",
+        "triage_conf": 0.88,
+        "triage_backend": "groq",
+        "narrative": "The alert represents a legitimate FTP brute\u2011force attempt that was detected with high confidence. Although no successful login was observed, the attack was confirmed and poses a risk of credential com",
+        "expected_verdict": "true_positive",
+        "correct": true,
+        "invest_time": 26.6,
+        "predicted_type": "FTP-BruteForce",
+        "model_conf": 0.9028,
+        "triage_model": "groq:openai/gpt-oss-120b"
+      },
+      {
+        "true_label": "Infiltration",
+        "seen_in_train": true,
+        "alert_fired": true,
+        "triage_verdict": "true_positive",
+        "triage_conf": 0.92,
+        "triage_backend": "groq",
+        "narrative": "The detection shows a high\u2011rate HTTPS flow (15,152\u202fpkt/s) flagged as an infiltration attempt (T1210) with a model confidence of 89.5\u202f%. Although no host logs were found, the confidence surpasses the 0",
+        "expected_verdict": "true_positive",
+        "correct": true,
+        "invest_time": 1.3,
+        "predicted_type": "Infiltration",
+        "model_conf": 0.8955,
+        "triage_model": "groq:openai/gpt-oss-120b"
+      },
+      {
+        "true_label": "SQL-Injection",
+        "seen_in_train": true,
+        "alert_fired": true,
+        "triage_verdict": "true_positive",
+        "triage_conf": 0.88,
+        "triage_backend": "groq",
+        "narrative": "The alert indicates a high\u2011confidence network detection of a SQL\u2011Injection attempt against the public\u2011facing web service. Although no host logs were found to confirm exploitation, the model\u2019s perfect ",
+        "expected_verdict": "true_positive",
+        "correct": true,
+        "invest_time": 1.5,
+        "predicted_type": "SQL-Injection",
+        "model_conf": 1.0,
+        "triage_model": "groq:openai/gpt-oss-120b"
+      },
+      {
+        "true_label": "SSH-BruteForce",
+        "seen_in_train": true,
+        "alert_fired": true,
+        "triage_verdict": "true_positive",
+        "triage_conf": 0.92,
+        "triage_backend": "groq",
+        "narrative": "The high\u2011confidence model flagged a sustained SSH brute\u2011force campaign against 172.31.65.47. Although no successful authentication was observed, the network traffic and confirmed attack status indicat",
+        "expected_verdict": "true_positive",
+        "correct": true,
+        "invest_time": 27.7,
+        "predicted_type": "SSH-BruteForce",
+        "model_conf": 1.0,
+        "triage_model": "groq:openai/gpt-oss-120b"
+      }
+    ]
+  }
+}
